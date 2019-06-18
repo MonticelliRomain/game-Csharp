@@ -79,11 +79,11 @@ namespace EZGAME
                 Console.WriteLine("Player skills: ");
                 for (int i = 0; i < ToPlay.GetSkills().Count; i++)
                 {
-                    Console.WriteLine("亗" + ToPlay.GetSkills()[i].GetName() + " (mana cost: " + ToPlay.GetSkills()[i].GetManaUsed() + ")");
+                    Console.WriteLine(" ► " + ToPlay.GetSkills()[i].GetName() + " (Damages:" + ToPlay.GetSkills()[i].GetDmgDealt() + " - Mana cost: " + ToPlay.GetSkills()[i].GetManaUsed() + ")");
                 }
 
-                Console.WriteLine("Vie: " + ToPlay.GetHealth());
-                Console.WriteLine("Mana: " + ToPlay.GetMana());
+                Console.WriteLine(" ♥ Health: " + ToPlay.GetHealth());
+                Console.WriteLine(" ⁂ Mana: " + ToPlay.GetMana());
 
                 bool isSkillUsed = false;
                 while (!isSkillUsed) 
@@ -112,7 +112,7 @@ namespace EZGAME
 
                 if(Hit.GetHealth() <= 0)
                 {
-                    Console.WriteLine("\n" + Hit.OnDeath());
+                    Console.WriteLine("\n† " + Hit.OnDeath() + " †");
                     gameOver = false;
                 }
 
