@@ -42,6 +42,9 @@
     <Compile Include="Hellfire.cs" />
     <Compile Include="Barronage.cs" />
     <Compile Include="Spin_To_Win.cs" />
+    <Compile Include="Elf.cs" />
+    <Compile Include="Deep_Arrow.cs" />
+    <Compile Include="Smooth_Rain.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

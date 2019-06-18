@@ -11,17 +11,17 @@ namespace EZGAME
 
             do 
             {
-                Console.WriteLine(" Player 1, choose your class (magician - warrior)");
+                Console.WriteLine(" Player 1, choose your class (magician - warrior - elf)");
                 classPlayer1 = Console.ReadLine();
             }
-            while (classPlayer1 != "magician" && classPlayer1 != "warrior");
+            while (classPlayer1 != "magician" && classPlayer1 != "warrior" && classPlayer1 != "elf");
 
             do
             {
-                Console.WriteLine("\nPlayer 2, choose your class (magician - warrior)");
+                Console.WriteLine("\nPlayer 2, choose your class (magician - warrior - elf)");
                 classPlayer2 = Console.ReadLine();
             }
-            while (classPlayer2 != "magician" && classPlayer2 != "warrior");
+            while (classPlayer2 != "magician" && classPlayer2 != "warrior" && classPlayer2 != "elf");
 
             Character player1;
             Character player2;
@@ -31,9 +31,13 @@ namespace EZGAME
                 player1 = new Magician();
             }
 
-            else
+            else if(classPlayer1 == "warrior")
             {
                 player1 = new Warrior();
+            }
+            else 
+            {
+                player1 = new Elf();
             }
 
             if (classPlayer2 == "magician")
@@ -41,9 +45,13 @@ namespace EZGAME
                 player2 = new Magician();
             }
 
-            else
+            else if (classPlayer2 == "warrior")
             {
                 player2 = new Warrior();
+            }
+            else 
+            {
+                player2 = new Elf();
             }
 
             int playerTurn = 0; // 0 is for player1 turn and 1 for player2 turn
@@ -85,7 +93,7 @@ namespace EZGAME
                     {
                         if (skillUsed == ToPlay.skills[i].GetName()) // it exists
                         {
-                            if (ToPlay.mana - ToPlay.skills[i].GetManaUsed() > 0) // is mana sufficient
+                            if (ToPlay.mana - ToPlay.skills[i].GetManaUsed() >= 0) // is mana sufficient
                             {
                                 ToPlay.skills[i].RunSkill(ToPlay, Hit);
                                 isSkillUsed = true;

@@ -4,3 +4,8 @@
 /home/romain/Projects/EZGAME/EZGAME/obj/x86/Debug/EZGAME.csproj.CoreCompileInputs.cache
 /home/romain/Projects/EZGAME/EZGAME/obj/x86/Debug/EZGAME.exe
 /home/romain/Projects/EZGAME/EZGAME/obj/x86/Debug/EZGAME.pdb
+/home/vadim/Documents/game-Csharp/EZGAME/bin/Debug/EZGAME.exe
+/home/vadim/Documents/game-Csharp/EZGAME/bin/Debug/EZGAME.pdb
+/home/vadim/Documents/game-Csharp/EZGAME/obj/x86/Debug/EZGAME.csproj.CoreCompileInputs.cache
+/home/vadim/Documents/game-Csharp/EZGAME/obj/x86/Debug/EZGAME.exe
+/home/vadim/Documents/game-Csharp/EZGAME/obj/x86/Debug/EZGAME.pdb
