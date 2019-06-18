@@ -1,0 +1,6 @@
+/home/romain/Projects/EZGAME/EZGAME/bin/Debug/EZGAME.exe
+/home/romain/Projects/EZGAME/EZGAME/bin/Debug/EZGAME.pdb
+/home/romain/Projects/EZGAME/EZGAME/obj/x86/Debug/EZGAME.csprojAssemblyReference.cache
+/home/romain/Projects/EZGAME/EZGAME/obj/x86/Debug/EZGAME.csproj.CoreCompileInputs.cache
+/home/romain/Projects/EZGAME/EZGAME/obj/x86/Debug/EZGAME.exe
+/home/romain/Projects/EZGAME/EZGAME/obj/x86/Debug/EZGAME.pdb
