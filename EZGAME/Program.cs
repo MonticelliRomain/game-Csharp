@@ -84,11 +84,10 @@ namespace EZGAME
                     {
                         if (skillUsed == ToPlay.skills[i].GetName())
                         {
-                            int manaLeft = ToPlay.mana - ToPlay.skills[i].GetManaUsed();
-                            if (manaLeft >= 0)
+                            if (ToPlay.mana - ToPlay.skills[i].GetManaUsed() > 0)
                             {
-                                ToPlay.mana = manaLeft;
-                                ToPlay.skills[i].RunSkill(ToHit);
+
+                                ToPlay.skills[i].RunSkill(ToPlay, ToHit);
                                 isSkillUsed = true;
                                 Console.Write("\n" + ToHit.OnHit());
                                 playerTurn = (playerTurn + 1) % 2;
@@ -112,7 +111,7 @@ namespace EZGAME
     interface Skill
     {
         int GetManaUsed();
-        void RunSkill(Character character);
+        void RunSkill(Character caster, Character hit);
         string GetName();
 
     }
@@ -124,9 +123,10 @@ namespace EZGAME
             return 10;
         }
 
-        public void RunSkill(Character characterHit)
+        public void RunSkill(Character caster, Character characterHit)
         {
             characterHit.vie -= 10;
+            caster.mana -= GetManaUsed();
         }
 
         public string GetName()
@@ -142,9 +142,10 @@ namespace EZGAME
             return 15;
         }
 
-        public void RunSkill(Character characterHit)
+        public void RunSkill(Character caster, Character characterHit)
         {
-            characterHit.vie -= 17;
+            characterHit.vie -= 30;
+            caster.mana -= GetManaUsed();
         }
 
         public string GetName()
@@ -161,9 +162,10 @@ namespace EZGAME
             return 20;
         }
 
-        public void RunSkill(Character characterHit)
+        public void RunSkill(Character caster, Character characterHit)
         {
             characterHit.vie -= 20;
+            caster.mana -= GetManaUsed();
         }
 
         public string GetName()
@@ -176,12 +178,13 @@ namespace EZGAME
     {
         public int GetManaUsed()
         {
-            return 35;
+            return 33;
         }
 
-        public void RunSkill(Character characterHit)
+        public void RunSkill(Character caster, Character characterHit)
         {
             characterHit.vie -= 35;
+            caster.mana -= GetManaUsed();
         }
 
         public string GetName()
@@ -219,7 +222,7 @@ namespace EZGAME
 
         public override string Hello() 
         { 
-            return "Salut moucheron"; 
+            return "DEMACIAAAAAAAAA"; 
         }
     }
     class Magician : Character
