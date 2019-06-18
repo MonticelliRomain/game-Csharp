@@ -24,5 +24,10 @@ namespace EZGAME
         {
             return "DEMACIAAAAAAAAA";
         }
+
+        public override string OnDeath()
+        {
+            return "DEMACIAAAAAAAAA";
+        }
     }
 }

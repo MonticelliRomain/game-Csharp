@@ -24,5 +24,10 @@ namespace EZGAME
         {
             return "Prepare your anus for my scepter";
         }
+
+        public override string OnDeath()
+        {
+            return "You took my scepter, I'm now an ermit";
+        }
     }
 }

@@ -97,7 +97,6 @@ namespace EZGAME
                             {
                                 ToPlay.GetSkills()[i].Run(ToPlay, Hit);
                                 isSkillUsed = true;
-                                Console.Write("\n" + Hit.OnHit());
                                 playerTurn = (playerTurn + 1) % 2; // update player turn
                             }
                            
@@ -111,7 +110,13 @@ namespace EZGAME
 
                 if(Hit.GetHealth() <= 0)
                 {
+                    Console.WriteLine("\n" + Hit.OnDeath());
                     gameOver = false;
+                }
+
+                else
+                {
+                    Console.Write("\n" + Hit.OnHit());
                 }
             }
         }

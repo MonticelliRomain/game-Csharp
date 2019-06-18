@@ -22,6 +22,7 @@ namespace EZGAME
 
         abstract public string OnHit(); // display a taunt when hit
         abstract public string Hello(); // character opening phrase
+        abstract public string OnDeath();
 
     }
 }

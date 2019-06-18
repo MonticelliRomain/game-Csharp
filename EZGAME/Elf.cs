@@ -24,5 +24,9 @@ namespace EZGAME
             return "My string is so stretched !";
         }
 
+        public override string OnDeath()
+        {
+            return "My string isn't stretched anymore...";
+        }
     }
 }
