@@ -11,8 +11,8 @@ namespace EZGAME
             skills.Add(new Deep_Arrow());
             skills.Add(new Smooth_Rain());
 
-            vie = 90;
-            mana = 75;
+            SetVie(90);
+            SetMana(75);
         }
         public override string OnHit()
         {

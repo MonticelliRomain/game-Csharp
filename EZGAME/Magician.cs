@@ -11,8 +11,8 @@ namespace EZGAME
             skills.Add(new Black_Hole());
             skills.Add(new Hellfire());
 
-            vie = 80;
-            mana = 100;
+            SetVie(80);
+            SetMana(100);
         }
 
         public override string OnHit()

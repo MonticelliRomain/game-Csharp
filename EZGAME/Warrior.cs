@@ -11,8 +11,8 @@ namespace EZGAME
             skills.Add(new Spin_To_Win());
             skills.Add(new Barronage());
 
-            vie = 100;
-            mana = 60;
+            SetVie(100);
+            SetMana(60);
         }
 
         public override string OnHit()

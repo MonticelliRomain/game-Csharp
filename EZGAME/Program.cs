@@ -93,7 +93,7 @@ namespace EZGAME
                     {
                         if (skillUsed == ToPlay.skills[i].GetName()) // it exists
                         {
-                            if (ToPlay.mana - ToPlay.skills[i].GetManaUsed() >= 0) // is mana sufficient
+                            if (ToPlay.GetMana() - ToPlay.skills[i].GetManaUsed() >= 0) // is mana sufficient
                             {
                                 ToPlay.skills[i].Run(ToPlay, Hit);
                                 isSkillUsed = true;
