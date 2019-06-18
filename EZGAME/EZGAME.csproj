@@ -45,6 +45,7 @@
     <Compile Include="Elf.cs" />
     <Compile Include="Deep_Arrow.cs" />
     <Compile Include="Smooth_Rain.cs" />
+    <Compile Include="CharacterManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
