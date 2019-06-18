@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace EZGAME
 {
@@ -47,23 +46,23 @@ namespace EZGAME
                 player2 = new Warrior();
             }
 
-            int playerTurn = 0;
+            int playerTurn = 0; // 0 is for player1 turn and 1 for player2 turn
             bool gameOver = true;
             while (gameOver)
             {
-                Character ToPlay;
-                Character ToHit;
+                Character ToPlay; 
+                Character Hit;
 
                 if (playerTurn == 0)
                 {
                     ToPlay = player1;
-                    ToHit = player2;
+                    Hit = player2;
                 }
 
                 else
                 {
                     ToPlay = player2;
-                    ToHit = player1;
+                    Hit = player1;
                 }
 
                 Console.WriteLine("\n" + ToPlay.Hello());
@@ -75,23 +74,25 @@ namespace EZGAME
 
                 Console.WriteLine("Vie: " + ToPlay.vie);
                 Console.WriteLine("Mana: " + ToPlay.mana);
+
                 bool isSkillUsed = false;
                 while (!isSkillUsed) 
                 {
-                    Console.WriteLine("Use of your skill\n");
+                    Console.WriteLine("Use one of your skill\n");
                     string skillUsed = Console.ReadLine();
-                    for(int i = 0; i < ToPlay.skills.Count; i++)
-                    {
-                        if (skillUsed == ToPlay.skills[i].GetName())
-                        {
-                            if (ToPlay.mana - ToPlay.skills[i].GetManaUsed() > 0)
-                            {
 
-                                ToPlay.skills[i].RunSkill(ToPlay, ToHit);
+                    for(int i = 0; i < ToPlay.skills.Count; i++) // loop through array to check if skill used exists
+                    {
+                        if (skillUsed == ToPlay.skills[i].GetName()) // it exists
+                        {
+                            if (ToPlay.mana - ToPlay.skills[i].GetManaUsed() > 0) // is mana sufficient
+                            {
+                                ToPlay.skills[i].RunSkill(ToPlay, Hit);
                                 isSkillUsed = true;
-                                Console.Write("\n" + ToHit.OnHit());
-                                playerTurn = (playerTurn + 1) % 2;
+                                Console.Write("\n" + Hit.OnHit());
+                                playerTurn = (playerTurn + 1) % 2; // update player turn
                             }
+                           
                             else
                             {
                                 Console.WriteLine("Not enough mana for this skill");
@@ -100,152 +101,11 @@ namespace EZGAME
                     }
                 }
 
-                if(ToHit.vie <= 0)
+                if(Hit.vie <= 0)
                 {
                     gameOver = false;
                 }
             }
-        }
-    }
-
-    interface Skill
-    {
-        int GetManaUsed();
-        void RunSkill(Character caster, Character hit);
-        string GetName();
-
-    }
-
-    class Spin_To_Win : Skill
-    {
-        public int GetManaUsed()
-        {
-            return 10;
-        }
-
-        public void RunSkill(Character caster, Character characterHit)
-        {
-            characterHit.vie -= 10;
-            caster.mana -= GetManaUsed();
-        }
-
-        public string GetName()
-        {
-            return "Spin To Win";
-        }
-    }
-
-    class Barronage : Skill
-    {
-        public int GetManaUsed()
-        {
-            return 15;
-        }
-
-        public void RunSkill(Character caster, Character characterHit)
-        {
-            characterHit.vie -= 30;
-            caster.mana -= GetManaUsed();
-        }
-
-        public string GetName()
-        {
-            return "Barronage";
-        }
-    }
-
-
-    class Black_Hole : Skill
-    {
-        public int GetManaUsed()
-        {
-            return 20;
-        }
-
-        public void RunSkill(Character caster, Character characterHit)
-        {
-            characterHit.vie -= 20;
-            caster.mana -= GetManaUsed();
-        }
-
-        public string GetName()
-        {
-            return "Black Hole";
-        }
-    }
-
-    class Hellfire : Skill
-    {
-        public int GetManaUsed()
-        {
-            return 33;
-        }
-
-        public void RunSkill(Character caster, Character characterHit)
-        {
-            characterHit.vie -= 35;
-            caster.mana -= GetManaUsed();
-        }
-
-        public string GetName()
-        {
-            return "Hellfire";
-        }
-    }
-
-    abstract class Character 
-    {
-        public List<Skill> skills;
-        public int vie;
-        public int mana;
-        abstract public string OnHit();
-        abstract public string Hello();
-
-    }
-    class Warrior : Character
-    {
-
-        public Warrior()
-        {
-            skills = new List<Skill>();
-            skills.Add(new Spin_To_Win());
-            skills.Add(new Barronage());
-
-            vie = 100;
-            mana = 60;
-        }
-
-        public override string OnHit() 
-        { 
-            return "You can't milk those"; 
-        }
-
-        public override string Hello() 
-        { 
-            return "DEMACIAAAAAAAAA"; 
-        }
-    }
-    class Magician : Character
-    {
-       
-        public Magician()
-        {
-            skills = new List<Skill>();
-            skills.Add(new Black_Hole());
-            skills.Add(new Hellfire());
-
-            vie = 80;
-            mana = 100;
-        }
-
-        public override string OnHit()
-        {
-            return "You shall hit me from afar";
-        }
-
-        public override string Hello()
-        {
-            return "Prepare your anus for my scepter";
         }
     }
 }
