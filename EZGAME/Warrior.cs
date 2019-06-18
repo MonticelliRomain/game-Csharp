@@ -7,11 +7,11 @@ namespace EZGAME
     {
         public Warrior()
         {
-            skills = new List<Skill>();
-            skills.Add(new Spin_To_Win());
-            skills.Add(new Barronage());
+            CreateSkillList();
+            AddSkill(new Spin_To_Win());
+            AddSkill(new Barronage());
 
-            SetVie(100);
+            SetHealth(100);
             SetMana(60);
         }
 

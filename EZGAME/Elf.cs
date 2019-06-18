@@ -7,11 +7,11 @@ namespace EZGAME
     {
         public Elf()
         {
-            skills = new List<Skill>();
-            skills.Add(new Deep_Arrow());
-            skills.Add(new Smooth_Rain());
+            CreateSkillList();
+            AddSkill(new Deep_Arrow());
+            AddSkill(new Smooth_Rain());
 
-            SetVie(90);
+            SetHealth(90);
             SetMana(75);
         }
         public override string OnHit()

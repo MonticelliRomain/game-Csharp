@@ -75,13 +75,13 @@ namespace EZGAME
 
                 Console.WriteLine("\n" + ToPlay.Hello());
                 Console.WriteLine("Player skills: ");
-                for (int i = 0; i < ToPlay.skills.Count; i++)
+                for (int i = 0; i < ToPlay.GetSkills().Count; i++)
                 {
-                    Console.WriteLine(ToPlay.skills[i].GetName() + " (mana cost: " + ToPlay.skills[i].GetManaUsed() + ")");
+                    Console.WriteLine(ToPlay.GetSkills()[i].GetName() + " (mana cost: " + ToPlay.GetSkills()[i].GetManaUsed() + ")");
                 }
 
-                Console.WriteLine("Vie: " + ToPlay.vie);
-                Console.WriteLine("Mana: " + ToPlay.mana);
+                Console.WriteLine("Vie: " + ToPlay.GetHealth());
+                Console.WriteLine("Mana: " + ToPlay.GetMana());
 
                 bool isSkillUsed = false;
                 while (!isSkillUsed) 
@@ -89,13 +89,13 @@ namespace EZGAME
                     Console.WriteLine("Use one of your skill\n");
                     string skillUsed = Console.ReadLine();
 
-                    for(int i = 0; i < ToPlay.skills.Count; i++) // loop through array to check if skill used exists
+                    for(int i = 0; i < ToPlay.GetSkills().Count; i++) // loop through array to check if skill used exists
                     {
-                        if (skillUsed == ToPlay.skills[i].GetName()) // it exists
+                        if (skillUsed == ToPlay.GetSkills()[i].GetName()) // it exists
                         {
-                            if (ToPlay.GetMana() - ToPlay.skills[i].GetManaUsed() >= 0) // is mana sufficient
+                            if (ToPlay.GetMana() - ToPlay.GetSkills()[i].GetManaUsed() >= 0) // is mana sufficient
                             {
-                                ToPlay.skills[i].Run(ToPlay, Hit);
+                                ToPlay.GetSkills()[i].Run(ToPlay, Hit);
                                 isSkillUsed = true;
                                 Console.Write("\n" + Hit.OnHit());
                                 playerTurn = (playerTurn + 1) % 2; // update player turn
@@ -109,7 +109,7 @@ namespace EZGAME
                     }
                 }
 
-                if(Hit.vie <= 0)
+                if(Hit.GetHealth() <= 0)
                 {
                     gameOver = false;
                 }

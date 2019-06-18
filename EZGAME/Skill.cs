@@ -13,7 +13,7 @@ namespace EZGAME
         public void Run(Character caster, Character hit) 
         {
             caster.DecMana(GetManaUsed());
-            hit.DecVie(GetDmgDealt());
+            hit.DecHealth(GetDmgDealt());
             // RunSkill(caster, hit);
         }
 

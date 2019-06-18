@@ -7,11 +7,11 @@ namespace EZGAME
     {
         public Magician()
         {
-            skills = new List<Skill>();
-            skills.Add(new Black_Hole());
-            skills.Add(new Hellfire());
+            CreateSkillList();
+            AddSkill(new Black_Hole());
+            AddSkill(new Hellfire());
 
-            SetVie(80);
+            SetHealth(80);
             SetMana(100);
         }
 

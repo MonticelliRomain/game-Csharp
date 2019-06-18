@@ -5,12 +5,15 @@ namespace EZGAME
 {
     abstract class Character
     {
-        public List<Skill> skills; 
+        private List<Skill> skills;
+        public List<Skill> GetSkills() { return this.skills; }
+        public void AddSkill(Skill skill) { this.skills.Add(skill); }
+        public void CreateSkillList() { this.skills = new List<Skill>(); }
 
-        private int vie;
-        public int GetVie() { return this.vie; }
-        public void SetVie(int value) { this.vie = value; }
-        public void DecVie(int value) { this.vie -= value; }
+        private int health;
+        public int GetHealth() { return this.health; }
+        public void SetHealth(int value) { this.health = value; }
+        public void DecHealth(int value) { this.health -= value; }
 
         private int mana;
         public int GetMana() { return this.mana; }
