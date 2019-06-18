@@ -1,17 +1,10 @@
 ﻿<Properties StartupConfiguration="{96DE9001-E8C0-4056-8586-B186B6E1777D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Deep_Arrow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Magician.cs">
     <Files>
-      <File FileName="Program.cs" Line="54" Column="37" />
-      <File FileName="Warrior.cs" Line="2" Column="1" />
-      <File FileName="Elf.cs" Line="3" Column="1" />
-      <File FileName="Character.cs" Line="1" Column="1" />
-      <File FileName="Skill.cs" Line="1" Column="1" />
-      <File FileName="Deep_Arrow.cs" Line="21" Column="6" />
-      <File FileName="Hellfire.cs" Line="20" Column="10" />
-      <File FileName="Smooth_Rain.cs" Line="1" Column="1" />
+      <File FileName="Program.cs" Line="6" Column="6" />
+      <File FileName="Magician.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.EZGAME PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

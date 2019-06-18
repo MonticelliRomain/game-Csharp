@@ -9,6 +9,8 @@ namespace EZGAME
             string classPlayer1;
             string classPlayer2;
 
+            Console.WriteLine("\n ▁ ▂ ▃ ▄ ▅ ▆ ▇ Welcome to the Game Rincé-De-Ouf ! █ ▇ ▆ ▅ ▄ ▂ ▁ \n");
+
             do 
             {
                 Console.WriteLine(" Player 1, choose your class (magician - warrior - elf)");
@@ -77,7 +79,7 @@ namespace EZGAME
                 Console.WriteLine("Player skills: ");
                 for (int i = 0; i < ToPlay.GetSkills().Count; i++)
                 {
-                    Console.WriteLine(ToPlay.GetSkills()[i].GetName() + " (mana cost: " + ToPlay.GetSkills()[i].GetManaUsed() + ")");
+                    Console.WriteLine("亗" + ToPlay.GetSkills()[i].GetName() + " (mana cost: " + ToPlay.GetSkills()[i].GetManaUsed() + ")");
                 }
 
                 Console.WriteLine("Vie: " + ToPlay.GetHealth());
