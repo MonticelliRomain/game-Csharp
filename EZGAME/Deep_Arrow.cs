@@ -3,18 +3,22 @@ namespace EZGAME
 {
     class Deep_Arrow : Skill
     {
-        public int GetManaUsed()
+        public override int GetManaUsed()
         {
             return 30;
         }
 
-        public void RunSkill(Character caster, Character characterHit)
+        public override int GetDmgDealt()
         {
-            characterHit.vie -= 38;
-            caster.mana -= GetManaUsed();
+            return 38;
         }
 
-        public string GetName()
+        public override void RunSkill(Character caster, Character hit)
+        {
+           
+        }
+
+        public override string GetName()
         {
             return "Deep Arrow";
         }

@@ -3,18 +3,21 @@ namespace EZGAME
 {
     class Smooth_Rain : Skill
     {
-        public int GetManaUsed()
+        public override int GetManaUsed()
         {
             return 15;
         }
 
-        public void RunSkill(Character caster, Character characterHit)
+        public override int GetDmgDealt()
         {
-            characterHit.vie -= 25;
-            caster.mana -= GetManaUsed();
+            return 25;
         }
 
-        public string GetName()
+        public override void RunSkill(Character caster, Character hit)
+        {
+        }
+
+        public override string GetName()
         {
             return "Smooth Rain";
         }

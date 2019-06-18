@@ -95,7 +95,7 @@ namespace EZGAME
                         {
                             if (ToPlay.mana - ToPlay.skills[i].GetManaUsed() >= 0) // is mana sufficient
                             {
-                                ToPlay.skills[i].RunSkill(ToPlay, Hit);
+                                ToPlay.skills[i].Run(ToPlay, Hit);
                                 isSkillUsed = true;
                                 Console.Write("\n" + Hit.OnHit());
                                 playerTurn = (playerTurn + 1) % 2; // update player turn
