@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace EZGAME
 {
-    abstract class Character
+    public abstract class Character
     {
         private List<Skill> skills;
         public List<Skill> GetSkills() { return this.skills; }
@@ -28,6 +28,5 @@ namespace EZGAME
         abstract public string OnHit(); // display a taunt when hit
         abstract public string Hello(); // character opening phrase
         abstract public string OnDeath(); // character dying phrase
-
     }
 }

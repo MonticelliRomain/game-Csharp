@@ -10,11 +10,11 @@
       <File FileName="EZGAME/Deep_Arrow.cs" Line="15" Column="1" />
       <File FileName="EZGAME/Black_Hole.cs" Line="22" Column="25" />
       <File FileName="EZGAME/Barronage.cs" Line="21" Column="20" />
-      <File FileName="EZGAME/Character.cs" Line="11" Column="72" />
-      <File FileName="EZGAME/Elf.cs" Line="29" Column="57" />
-      <File FileName="EZGAME/Magician.cs" Line="30" Column="58" />
-      <File FileName="EZGAME/Warrior.cs" Line="2" Column="34" />
-      <File FileName="EZGAME/CharacterManager.cs" Line="25" Column="13" />
+      <File FileName="EZGAME/Character.cs" Line="26" Column="64" />
+      <File FileName="EZGAME/Elf.cs" Line="16" Column="25" />
+      <File FileName="EZGAME/Magician.cs" Line="16" Column="33" />
+      <File FileName="EZGAME/Warrior.cs" Line="16" Column="29" />
+      <File FileName="EZGAME/CharacterManager.cs" Line="35" Column="48" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -1,7 +1,7 @@
 ﻿using System;
 namespace EZGAME
 {
-    abstract class Skill
+    public abstract class Skill
     {
         abstract public string GetName();
         abstract public int GetManaUsed();

@@ -6,6 +6,10 @@ namespace EZGAME
     public sealed class CharacterManager
     {
         private Dictionary<string, Character> characters;
+        public Dictionary<string, Character> GetMap()
+        {
+            return characters;
+        }
         private static CharacterManager instance = null;
 
         /*public object GetInstance(string strFullyQualifiedName)
@@ -16,9 +20,9 @@ namespace EZGAME
 
         public CharacterManager()
         {
-            characters.Add("Magician", new Magician());
-            characters.Add("Warrior", new Warrior());
-            characters.Add("Elf", new Elf());
+            Register("magician", Magician);
+            Register("warrior", Warrior);
+            Register("elf", Elf);
         }
 
         public static CharacterManager Instance
@@ -33,17 +37,9 @@ namespace EZGAME
             }
         }
 
-        public void Register(string name)
+        public void Register(string name, Character chara)
         {
-            Character created = null;
-            for (int i = 0; i < characters.Count; i++)
-            {
-                if (this.characters[name] != null)
-                {
-                    created = this.characters[name];
-                }
-            }
-
+            characters.Add(name, chara);
         }
     }
 }
