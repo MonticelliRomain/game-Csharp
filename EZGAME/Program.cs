@@ -111,31 +111,3 @@ namespace EZGAME
         }
     }
 }
-
-/*
- * Classe abstraite Character
--> List<Skill>
--> vie
--> mana
-
--> méthode abstract onHit()
--> méthode abstract hello()
-Interface Skill
--> GetManaUsed()
--> RunSkill(Character hitted)
--> GetName()
-
-Classe Warior
-
-Casse Magician
-
------------------------- Définir les skills des deux classes (a votre sauce)
-
-La partie se jouera a deux joueurs, au début le CLI demande a chaque joueur quel classe il veut (afficher toutes les classes dispo)
-
-Ensuite tour par tour sa affiche la liste des Skill dispo sur cette classe ainsi que la vie et le mana restant du joueur
-en fonction du skill utilisé sa le lancera sur le joueur adverse et fera l'effet du skill
-
-la méthode OnHit du gars touché sera appelé
-et la méthode hello() sera appelé a chaque début de tour
- */

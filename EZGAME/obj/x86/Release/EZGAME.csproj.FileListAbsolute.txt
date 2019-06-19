@@ -1,0 +1,3 @@
+/home/romain/Projects/EZGAME/EZGAME/bin/Release/EZGAME.exe
+/home/romain/Projects/EZGAME/EZGAME/obj/x86/Release/EZGAME.csproj.CoreCompileInputs.cache
+/home/romain/Projects/EZGAME/EZGAME/obj/x86/Release/EZGAME.exe
