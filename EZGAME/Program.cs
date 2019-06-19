@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace EZGAME
 {
@@ -6,55 +7,37 @@ namespace EZGAME
     {
         public static void Main(string[] args)
         {
+            CharacterManager classmanager = new CharacterManager();
             string classPlayer1;
             string classPlayer2;
 
             Console.WriteLine("\n ▁ ▂ ▃ ▄ ▅ ▆ ▇ Welcome to the Game Rincé-De-Ouf ! █ ▇ ▆ ▅ ▄ ▂ ▁ \n");
 
+            Dictionary<string, Character>.KeyCollection keys = classmanager.GetMap().Keys;
+            string message = "";
+
+            foreach (string key in keys)
+            {
+                message += key;
+                message += " ";
+            }
+
             do 
             {
-                Console.WriteLine(" Player 1, choose your class (magician - warrior - elf)");
+                Console.WriteLine(" Player 1, choose your class (" + message + ")" );
                 classPlayer1 = Console.ReadLine();
             }
-            while (classPlayer1 != "magician" && classPlayer1 != "warrior" && classPlayer1 != "elf");
+            while (!classmanager.GetMap().ContainsKey(classPlayer1));
 
             do
             {
-                Console.WriteLine("\nPlayer 2, choose your class (magician - warrior - elf)");
+                Console.WriteLine("\nPlayer 2, choose your class (" + message + " )");
                 classPlayer2 = Console.ReadLine();
             }
-            while (classPlayer2 != "magician" && classPlayer2 != "warrior" && classPlayer2 != "elf");
+            while (!classmanager.GetMap().ContainsKey(classPlayer2));
 
-            Character player1;
-            Character player2;
-
-                if (classPlayer1 == "magician")
-            {
-                player1 = new Magician();
-            }
-
-            else if(classPlayer1 == "warrior")
-            {
-                player1 = new Warrior();
-            }
-            else 
-            {
-                player1 = new Elf();
-            }
-
-            if (classPlayer2 == "magician")
-            {
-                player2 = new Magician();
-            }
-
-            else if (classPlayer2 == "warrior")
-            {
-                player2 = new Warrior();
-            }
-            else 
-            {
-                player2 = new Elf();
-            }
+            Character player1 = classmanager.GetMap()[classPlayer1];
+            Character player2 = classmanager.GetMap()[classPlayer2];
 
             int playerTurn = 0; // 0 is for player1 turn and 1 for player2 turn
             bool gameOver = true;

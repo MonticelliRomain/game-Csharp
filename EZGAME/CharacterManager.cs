@@ -21,6 +21,7 @@ namespace EZGAME
 
         public CharacterManager()
         {
+            characters = new Dictionary<string, Character>();
             var magician = new Magician();
             var warrior = new Warrior();
             var elf = new Elf();
