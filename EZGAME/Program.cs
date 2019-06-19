@@ -36,11 +36,11 @@ namespace EZGAME
                 Player player;
 
                 if (i == 1) {
-                    player = new Player(hero, i, true);
+                    player = new Player(hero, true);
                 }
 
                 else {
-                    player = new Player(hero, i, false);
+                    player = new Player(hero, false);
                 }
 
                 players.Add(player);
