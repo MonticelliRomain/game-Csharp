@@ -46,6 +46,7 @@
     <Compile Include="Deep_Arrow.cs" />
     <Compile Include="Smooth_Rain.cs" />
     <Compile Include="CharacterManager.cs" />
+    <Compile Include="Player.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

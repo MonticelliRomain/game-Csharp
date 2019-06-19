@@ -8,65 +8,68 @@ namespace EZGAME
         public static void Main(string[] args)
         {
             CharacterManager classmanager = new CharacterManager();
-            string classPlayer1;
-            string classPlayer2;
-
-            Console.WriteLine("\n ▁ ▂ ▃ ▄ ▅ ▆ ▇ Welcome to the Game Rincé-De-Ouf ! █ ▇ ▆ ▅ ▄ ▂ ▁ \n");
-
             Dictionary<string, Character>.KeyCollection keys = classmanager.GetMap().Keys;
-            string message = "";
 
+            string message = "";
             foreach (string key in keys)
             {
                 message += key;
                 message += " ";
             }
 
-            do 
+            List<Player> players = new List<Player>();
+            int nbOfPlayers = 2;
+            string classPlayer;
+
+            Console.WriteLine("\n ▁ ▂ ▃ ▄ ▅ ▆ ▇ Welcome to the Game Rincé-De-Ouf ! █ ▇ ▆ ▅ ▄ ▂ ▁ \n");
+
+            for (int i = 1; i <= nbOfPlayers; i++)
             {
-                Console.WriteLine(" Player 1, choose your class (" + message + ")" );
-                classPlayer1 = Console.ReadLine();
+                do
+                {
+                    Console.WriteLine(" Player " + i +", choose your class (" + message + ")");
+                    classPlayer = Console.ReadLine();
+                }
+                while (!classmanager.GetMap().ContainsKey(classPlayer));
+
+                Character hero = classmanager.GetMap()[classPlayer];
+                Player player;
+
+                if (i == 1) {
+                    player = new Player(hero, i, true);
+                }
+
+                else {
+                    player = new Player(hero, i, false);
+                }
+
+                players.Add(player);
             }
-            while (!classmanager.GetMap().ContainsKey(classPlayer1));
 
-            do
-            {
-                Console.WriteLine("\nPlayer 2, choose your class (" + message + " )");
-                classPlayer2 = Console.ReadLine();
-            }
-            while (!classmanager.GetMap().ContainsKey(classPlayer2));
-
-            Character player1 = classmanager.GetMap()[classPlayer1];
-            Character player2 = classmanager.GetMap()[classPlayer2];
-
-            int playerTurn = 0; // 0 is for player1 turn and 1 for player2 turn
             bool gameOver = true;
             while (gameOver)
             {
-                Character ToPlay; 
-                Character Hit;
-
-                if (playerTurn == 0)
+                Player ToPlay = null;
+                int currentPlayer = 0;
+                foreach(Player player in players)
                 {
-                    ToPlay = player1;
-                    Hit = player2;
+                    if(player.GetTurn() == true)
+                    {
+                        ToPlay = player;
+                        currentPlayer = players.IndexOf(player);
+                    }
                 }
+                Player Hit = players[(currentPlayer + 1) % players.Count];
 
-                else
-                {
-                    ToPlay = player2;
-                    Hit = player1;
-                }
-
-                Console.WriteLine("\n" + ToPlay.Hello());
+                Console.WriteLine("\n" + ToPlay.GetCharacter().Hello());
                 Console.WriteLine("Player skills: ");
-                for (int i = 0; i < ToPlay.GetSkills().Count; i++)
+                for (int i = 0; i < ToPlay.GetCharacter().GetSkills().Count; i++)
                 {
-                    Console.WriteLine(" ► " + ToPlay.GetSkills()[i].GetName() + " (Damages:" + ToPlay.GetSkills()[i].GetDmgDealt() + " - Mana cost: " + ToPlay.GetSkills()[i].GetManaUsed() + ")");
+                    Console.WriteLine(" ► " + ToPlay.GetCharacter().GetSkills()[i].GetName() + " (Damages:" + ToPlay.GetCharacter().GetSkills()[i].GetDmgDealt() + " - Mana cost: " + ToPlay.GetCharacter().GetSkills()[i].GetManaUsed() + ")");
                 }
 
-                Console.WriteLine(" ♥ Health: " + ToPlay.GetHealth());
-                Console.WriteLine(" ⁂ Mana: " + ToPlay.GetMana());
+                Console.WriteLine(" ♥ Health: " + ToPlay.GetCharacter().GetHealth());
+                Console.WriteLine(" ⁂ Mana: " + ToPlay.GetCharacter().GetMana());
 
                 bool isSkillUsed = false;
                 while (!isSkillUsed) 
@@ -74,15 +77,16 @@ namespace EZGAME
                     Console.WriteLine("Use one of your skill\n");
                     string skillUsed = Console.ReadLine();
 
-                    for(int i = 0; i < ToPlay.GetSkills().Count; i++) // loop through array to check if skill used exists
+                    for(int i = 0; i < ToPlay.GetCharacter().GetSkills().Count; i++) // loop through array to check if skill used exists
                     {
-                        if (skillUsed == ToPlay.GetSkills()[i].GetName()) // it exists
+                        if (skillUsed == ToPlay.GetCharacter().GetSkills()[i].GetName()) // it exists
                         {
-                            if (ToPlay.GetMana() - ToPlay.GetSkills()[i].GetManaUsed() >= 0) // is mana sufficient
+                            if (ToPlay.GetCharacter().GetMana() - ToPlay.GetCharacter().GetSkills()[i].GetManaUsed() >= 0) // is mana sufficient
                             {
-                                ToPlay.GetSkills()[i].Run(ToPlay, Hit);
+                                ToPlay.GetCharacter().GetSkills()[i].Run(ToPlay.GetCharacter(), Hit.GetCharacter());
                                 isSkillUsed = true;
-                                playerTurn = (playerTurn + 1) % 2; // update player turn
+                                ToPlay.ChangeTurn();
+                                players[(currentPlayer + 1) % players.Count].ChangeTurn(); // update player turn
                             }
                            
                             else
@@ -93,15 +97,15 @@ namespace EZGAME
                     }
                 }
 
-                if(Hit.GetHealth() <= 0)
+                if(Hit.GetCharacter().GetHealth() <= 0)
                 {
-                    Console.WriteLine("\n† " + Hit.OnDeath() + " †");
+                    Console.WriteLine("\n† " + Hit.GetCharacter().OnDeath() + " †");
                     gameOver = false;
                 }
 
                 else
                 {
-                    Console.Write("\n" + Hit.OnHit());
+                    Console.Write("\n" + Hit.GetCharacter().OnHit());
                 }
             }
         }
