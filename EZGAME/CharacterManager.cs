@@ -5,33 +5,20 @@ namespace EZGAME
 {
     public sealed class CharacterManager
     {
-        private List<Character> characters;
+        private Dictionary<string, Character> characters;
         private static CharacterManager instance = null;
 
-        public object GetInstance(string strFullyQualifiedName)
+        /*public object GetInstance(string strFullyQualifiedName)
         {
             Type t = Type.GetType(strFullyQualifiedName);
             return Activator.CreateInstance(t);
-        }
-
-        public void Register(string name, List<Character> charas)
-        {
-            Character created = null;
-            for(int i = 0; i < characters.Count; i++)
-            {
-                if(name == this.characters[i].GetName())
-                {
-                    created = (Character) GetInstance(name);
-                }
-            }
-            charas.Add(created);
-        }
+        }*/
 
         public CharacterManager()
         {
-            characters.Add(new Magician());
-            characters.Add(new Warrior());
-            characters.Add(new Elf());
+            characters.Add("Magician", new Magician());
+            characters.Add("Warrior", new Warrior());
+            characters.Add("Elf", new Elf());
         }
 
         public static CharacterManager Instance
@@ -44,6 +31,19 @@ namespace EZGAME
                 }
                 return instance;
             }
+        }
+
+        public void Register(string name)
+        {
+            Character created = null;
+            for (int i = 0; i < characters.Count; i++)
+            {
+                if (this.characters[name] != null)
+                {
+                    created = this.characters[name];
+                }
+            }
+
         }
     }
 }
