@@ -21,6 +21,10 @@ namespace EZGAME
         public void SetMana(int value) { this.mana = value; }
         public void DecMana(int value) { this.mana -= value; }
 
+        private string name;
+        public string GetName() { return this.name; }
+        public void SetName(string value) { this.name = value; }
+
         abstract public string OnHit(); // display a taunt when hit
         abstract public string Hello(); // character opening phrase
         abstract public string OnDeath(); // character dying phrase

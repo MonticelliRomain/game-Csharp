@@ -5,28 +5,33 @@ namespace EZGAME
 {
     public sealed class CharacterManager
     {
+        private List<Character> characters;
         private static CharacterManager instance = null;
 
-        public void Register(string name)
+        public object GetInstance(string strFullyQualifiedName)
         {
-            Character created;
-             
-            switch (name)
+            Type t = Type.GetType(strFullyQualifiedName);
+            return Activator.CreateInstance(t);
+        }
+
+        public void Register(string name, List<Character> charas)
+        {
+            Character created = null;
+            for(int i = 0; i < characters.Count; i++)
             {
-                case "magician":
-                    created = new Magician();
-                    break;
-                case "elf":
-                    created = new Elf();
-                    break;
-                case "warrior":
-                    created = new Magician();
-                    break;
+                if(name == this.characters[i].GetName())
+                {
+                    created = (Character) GetInstance(name);
+                }
             }
+            charas.Add(created);
         }
 
         public CharacterManager()
         {
+            characters.Add(new Magician());
+            characters.Add(new Warrior());
+            characters.Add(new Elf());
         }
 
         public static CharacterManager Instance

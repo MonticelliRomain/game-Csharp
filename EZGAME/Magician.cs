@@ -13,6 +13,7 @@ namespace EZGAME
 
             SetHealth(80);
             SetMana(100);
+            SetName("Magician");
         }
 
         public override string OnHit()

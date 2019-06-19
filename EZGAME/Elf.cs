@@ -13,6 +13,7 @@ namespace EZGAME
 
             SetHealth(90);
             SetMana(75);
+            SetName("Elf");
         }
         public override string OnHit()
         {

@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{96DE9001-E8C0-4056-8586-B186B6E1777D}|Default">
+  <MonoDevelop.Ide.ItemProperties.EZGAME PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="EZGAME/CharacterManager.cs">
+    <Files>
+      <File FileName="EZGAME/Program.cs" Line="1" Column="1" />
+      <File FileName="EZGAME/Skill.cs" Line="16" Column="25" />
+      <File FileName="EZGAME/Spin_To_Win.cs" Line="16" Column="68" />
+      <File FileName="EZGAME/Smooth_Rain.cs" Line="16" Column="68" />
+      <File FileName="EZGAME/Hellfire.cs" Line="22" Column="25" />
+      <File FileName="EZGAME/Deep_Arrow.cs" Line="15" Column="1" />
+      <File FileName="EZGAME/Black_Hole.cs" Line="22" Column="25" />
+      <File FileName="EZGAME/Barronage.cs" Line="21" Column="20" />
+      <File FileName="EZGAME/Character.cs" Line="11" Column="72" />
+      <File FileName="EZGAME/Elf.cs" Line="29" Column="57" />
+      <File FileName="EZGAME/Magician.cs" Line="30" Column="58" />
+      <File FileName="EZGAME/Warrior.cs" Line="2" Column="34" />
+      <File FileName="EZGAME/CharacterManager.cs" Line="25" Column="13" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
