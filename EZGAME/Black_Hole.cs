@@ -3,7 +3,7 @@ namespace EZGAME
 {
     class Black_Hole : Skill
     {
-        public Black_Hole(string name, int mana, int dmg) : base(name, mana, dmg)
+        public Black_Hole() : base("Black Hole", 20, 20)
         {
 
         }

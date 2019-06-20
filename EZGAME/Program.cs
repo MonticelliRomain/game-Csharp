@@ -7,7 +7,6 @@ namespace EZGAME
     {
         public static void Main(string[] args)
         {
-            CharacterManager classmanager = new CharacterManager();
             CharacterManager.Instance.Register<Magician>("magician");
             CharacterManager.Instance.Register<Warrior>("warrior");
             CharacterManager.Instance.Register<Elf>("elf");
@@ -32,78 +31,32 @@ namespace EZGAME
                 Player player;
                 Character hero = (Character) Activator.CreateInstance(CharacterManager.Instance.GetMap()[classPlayer]);
 
-                if (i == 1) {
-                    player = new Player(hero, true);
-                }
-
-                else {
-                    player = new Player(hero, false);
-                }
-
+                player = new Player(hero);
                 players.Add(player);
             }
 
             bool gameOver = true;
+            int playerTurn = 0;
+
             while (gameOver)
             {
-                Player ToPlay = null;
-                int currentPlayer = 0;
-                foreach(Player player in players)
+                players[playerTurn].GetCharacter().Hello();
+                players[playerTurn].PrintStats();
+
+                int nextPlayer = (playerTurn + 1) % players.Count;
+
+                players[playerTurn].ChooseSkill(players[nextPlayer]);
+                playerTurn++;
+
+                if(players[nextPlayer].GetCharacter().GetHealth() <= 0)
                 {
-                    if(player.GetTurn() == true)
-                    {
-                        ToPlay = player;
-                        currentPlayer = players.IndexOf(player);
-                    }
-                }
-                Player Hit = players[(currentPlayer + 1) % players.Count];
-
-                Console.WriteLine("\n" + ToPlay.GetCharacter().Hello());
-                Console.WriteLine("Player skills: ");
-                for (int i = 0; i < ToPlay.GetCharacter().GetSkills().Count; i++)
-                {
-                    Console.WriteLine(" ► " + ToPlay.GetCharacter().GetSkills()[i].GetName() + " (Damages:" + ToPlay.GetCharacter().GetSkills()[i].GetDmgDealt() 
-                    + " - Mana cost: " + ToPlay.GetCharacter().GetSkills()[i].GetManaUsed() + ")");
-                }
-
-                Console.WriteLine(" ♥ Health: " + ToPlay.GetCharacter().GetHealth());
-                Console.WriteLine(" ⁂ Mana: " + ToPlay.GetCharacter().GetMana());
-
-                bool isSkillUsed = false;
-                while (!isSkillUsed) 
-                {
-                    Console.WriteLine("Use one of your skill\n");
-                    string skillUsed = Console.ReadLine();
-
-                    for(int i = 0; i < ToPlay.GetCharacter().GetSkills().Count; i++) // loop through array to check if skill used exists
-                    {
-                        if (skillUsed == ToPlay.GetCharacter().GetSkills()[i].GetName()) // it exists
-                        {
-                            if (ToPlay.GetCharacter().GetMana() - ToPlay.GetCharacter().GetSkills()[i].GetManaUsed() >= 0) // is mana sufficient
-                            {
-                                ToPlay.GetCharacter().GetSkills()[i].Run(ToPlay.GetCharacter(), Hit.GetCharacter());
-                                isSkillUsed = true;
-                                ToPlay.ChangeTurn();
-                                players[(currentPlayer + 1) % players.Count].ChangeTurn(); // update player turn
-                            }
-                           
-                            else
-                            {
-                                Console.WriteLine("Not enough mana for this skill");
-                            }
-                        }
-                    }
-                }
-
-                if(Hit.GetCharacter().GetHealth() <= 0)
-                {
-                    Console.WriteLine("\n† " + Hit.GetCharacter().OnDeath() + " †");
+                    Console.WriteLine("\n† " + players[nextPlayer].GetCharacter().OnDeath() + " †");
                     gameOver = false;
                 }
 
                 else
                 {
-                    Console.Write("\n" + Hit.GetCharacter().OnHit());
+                    Console.Write("\n" + players[nextPlayer].GetCharacter().OnHit());
                 }
             }
         }

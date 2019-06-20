@@ -3,7 +3,7 @@ namespace EZGAME
 {
     class Deep_Arrow : Skill
     {
-        public Deep_Arrow(string name, int mana, int dmg) : base(name, mana, dmg)
+        public Deep_Arrow() : base("Deep Arrow", 30, 38)
         {
 
         }

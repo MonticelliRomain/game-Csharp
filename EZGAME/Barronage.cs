@@ -3,7 +3,7 @@ namespace EZGAME
 {
     class Barronage : Skill
     {
-       public Barronage(string name, int mana, int dmg) : base(name, mana, dmg)
+       public Barronage() : base("Barronage", 15, 30)
         {
 
         }

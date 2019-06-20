@@ -7,8 +7,8 @@ namespace EZGAME
     {
         public Magician() : base(80, 100, "Magician")
         {
-            AddSkill(new Black_Hole("Black Hole", 20, 20));
-            AddSkill(new Hellfire("Hellfire", 33, 35));
+            AddSkill(new Black_Hole());
+            AddSkill(new Hellfire());
         }
 
         public override string OnHit()

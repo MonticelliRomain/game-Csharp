@@ -7,8 +7,8 @@ namespace EZGAME
     {
         public Warrior() : base(100, 60, "Warrior")
         {
-            AddSkill(new Spin_To_Win("Spin To Win", 10, 10));
-            AddSkill(new Barronage("Barronage", 15, 30));
+            AddSkill(new Spin_To_Win());
+            AddSkill(new Barronage());
         }
 
         public override string OnHit()
