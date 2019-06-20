@@ -5,16 +5,12 @@ namespace EZGAME
 {
     class Elf : Character
     {
-        public Elf()
+        public Elf() : base(90, 75, "Elf")
         {
-            CreateSkillList();
-            AddSkill(new Deep_Arrow());
-            AddSkill(new Smooth_Rain());
-
-            SetHealth(90);
-            SetMana(75);
-            SetName("Elf");
+            AddSkill(new Deep_Arrow("Deep Arrow", 30, 38));
+            AddSkill(new Smooth_Rain("Smooth Rain", 15, 25));
         }
+
         public override string OnHit()
         {
             return "Wow ! I'll come for your booty you dumbass !";

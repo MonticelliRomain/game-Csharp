@@ -5,15 +5,10 @@ namespace EZGAME
 {
     class Magician : Character
     {
-        public Magician()
+        public Magician() : base(80, 100, "Magician")
         {
-            CreateSkillList();
-            AddSkill(new Black_Hole());
-            AddSkill(new Hellfire());
-
-            SetHealth(80);
-            SetMana(100);
-            SetName("Magician");
+            AddSkill(new Black_Hole("Black Hole", 20, 20));
+            AddSkill(new Hellfire("Hellfire", 33, 35));
         }
 
         public override string OnHit()

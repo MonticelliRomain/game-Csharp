@@ -3,24 +3,13 @@ namespace EZGAME
 {
     class Barronage : Skill
     {
-        public override int GetManaUsed()
+       public Barronage(string name, int mana, int dmg) : base(name, mana, dmg)
         {
-            return 15;
-        }
 
-        public override int GetDmgDealt()
-        {
-            return 30;
         }
-
 
         public override void RunSkill(Character caster, Character hit)
         {
-        }
-
-        public override string GetName()
-        {
-            return "Barronage";
         }
     }
 }

@@ -3,24 +3,14 @@ namespace EZGAME
 {
     class Spin_To_Win : Skill
     {
-        public override int GetManaUsed()
+        public Spin_To_Win(string name, int mana, int dmg) : base(name, mana, dmg)
         {
-            return 10;
-        }
 
-        public override int GetDmgDealt()
-        {
-            return 10;
         }
 
         public override void RunSkill(Character caster, Character hit)
         {
 
-        }
-
-        public override string GetName()
-        {
-            return "Spin To Win";
         }
     }
 }

@@ -5,15 +5,10 @@ namespace EZGAME
 {
     class Warrior : Character
     {
-        public Warrior()
+        public Warrior() : base(100, 60, "Warrior")
         {
-            CreateSkillList();
-            AddSkill(new Spin_To_Win());
-            AddSkill(new Barronage());
-
-            SetHealth(100);
-            SetMana(60);
-            SetName("Warrior");
+            AddSkill(new Spin_To_Win("Spin To Win", 10, 10));
+            AddSkill(new Barronage("Barronage", 15, 30));
         }
 
         public override string OnHit()

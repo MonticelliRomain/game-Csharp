@@ -3,25 +3,14 @@ namespace EZGAME
 {
     class Black_Hole : Skill
     {
-        public override int GetManaUsed()
+        public Black_Hole(string name, int mana, int dmg) : base(name, mana, dmg)
         {
-            return 20;
-        }
 
-        public override int GetDmgDealt()
-        {
-            return 20;
         }
-
 
         public override void RunSkill(Character caster, Character hit)
         {
-           
-        }
 
-        public override string GetName()
-        {
-            return "Black Hole";
         }
     }
 }

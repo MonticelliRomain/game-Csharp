@@ -3,25 +3,14 @@ namespace EZGAME
 {
     class Hellfire : Skill
     {
-        public override int GetManaUsed()
+        public Hellfire(string name, int mana, int dmg) : base(name, mana, dmg)
         {
-            return 33;
-        }
 
-        public override int GetDmgDealt()
-        {
-            return 35;
         }
-
 
         public override void RunSkill(Character caster, Character hit)
         {
 
-        }
-
-        public override string GetName()
-        {
-            return "Hellfire";
         }
     }
 }

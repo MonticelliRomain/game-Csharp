@@ -9,7 +9,6 @@ namespace EZGAME
         public List<Skill> GetSkills() { return this.skills; }
         public void AddSkill(Skill skill) { this.skills.Add(skill); }
         public void SetSkill(List<Skill> skill) { this.skills = skill; }
-        public void CreateSkillList() { this.skills = new List<Skill>(); }
 
         private int health;
         public int GetHealth() { return this.health; }
@@ -24,6 +23,14 @@ namespace EZGAME
         private string name;
         public string GetName() { return this.name; }
         public void SetName(string value) { this.name = value; }
+
+        protected Character(int health, int mana, string name) 
+        {
+            this.health = health;
+            this.mana = mana;
+            this.name = name;
+            this.skills = new List<Skill>();
+        }
 
         abstract public string OnHit(); // display a taunt when hit
         abstract public string Hello(); // character opening phrase

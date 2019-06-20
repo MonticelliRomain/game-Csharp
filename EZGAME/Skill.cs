@@ -3,9 +3,20 @@ namespace EZGAME
 {
     public abstract class Skill
     {
-        abstract public string GetName();
-        abstract public int GetManaUsed();
-        abstract public int GetDmgDealt();
+        private string name;
+        private int mana;
+        private int dmg;
+
+        public Skill(string name, int mana, int dmg)
+        {
+            this.name = name;
+            this.mana = mana;
+            this.dmg = dmg;
+        }
+
+        public string GetName() { return name; }
+        public int GetManaUsed() { return mana; }
+        public int GetDmgDealt() { return dmg; }
 
         abstract public void RunSkill(Character caster, Character hit);
 
@@ -16,7 +27,5 @@ namespace EZGAME
             hit.DecHealth(GetDmgDealt());
             // RunSkill(caster, hit);
         }
-
-
     }
 }

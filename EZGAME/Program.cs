@@ -8,14 +8,11 @@ namespace EZGAME
         public static void Main(string[] args)
         {
             CharacterManager classmanager = new CharacterManager();
-            Dictionary<string, Character>.KeyCollection keys = classmanager.GetMap().Keys;
+            CharacterManager.Instance.Register<Magician>("magician");
+            CharacterManager.Instance.Register<Warrior>("warrior");
+            CharacterManager.Instance.Register<Elf>("elf");
 
-            string message = "";
-            foreach (string key in keys)
-            {
-                message += key;
-                message += " ";
-            }
+            string message = String.Format("({0})", string.Join("-", CharacterManager.Instance.GetMap().Keys));
 
             List<Player> players = new List<Player>();
             int nbOfPlayers = 2;
@@ -27,13 +24,13 @@ namespace EZGAME
             {
                 do
                 {
-                    Console.WriteLine(" Player " + i +", choose your class (" + message + ")");
+                    Console.WriteLine(" Player " + i +", choose your class "  + message);
                     classPlayer = Console.ReadLine();
                 }
-                while (!classmanager.GetMap().ContainsKey(classPlayer));
+                while (!CharacterManager.Instance.GetMap().ContainsKey(classPlayer));
 
-                Character hero = classmanager.GetMap()[classPlayer];
                 Player player;
+                Character hero = (Character) Activator.CreateInstance(CharacterManager.Instance.GetMap()[classPlayer]);
 
                 if (i == 1) {
                     player = new Player(hero, true);
@@ -65,7 +62,8 @@ namespace EZGAME
                 Console.WriteLine("Player skills: ");
                 for (int i = 0; i < ToPlay.GetCharacter().GetSkills().Count; i++)
                 {
-                    Console.WriteLine(" ► " + ToPlay.GetCharacter().GetSkills()[i].GetName() + " (Damages:" + ToPlay.GetCharacter().GetSkills()[i].GetDmgDealt() + " - Mana cost: " + ToPlay.GetCharacter().GetSkills()[i].GetManaUsed() + ")");
+                    Console.WriteLine(" ► " + ToPlay.GetCharacter().GetSkills()[i].GetName() + " (Damages:" + ToPlay.GetCharacter().GetSkills()[i].GetDmgDealt() 
+                    + " - Mana cost: " + ToPlay.GetCharacter().GetSkills()[i].GetManaUsed() + ")");
                 }
 
                 Console.WriteLine(" ♥ Health: " + ToPlay.GetCharacter().GetHealth());
