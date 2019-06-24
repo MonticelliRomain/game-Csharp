@@ -1,0 +1,4 @@
+/home/romain/Projects/EZGAME/Interface_Graphique/bin/Release/Interface_Graphique.exe
+/home/romain/Projects/EZGAME/Interface_Graphique/obj/x86/Release/Interface_Graphique.csprojAssemblyReference.cache
+/home/romain/Projects/EZGAME/Interface_Graphique/obj/x86/Release/Interface_Graphique.csproj.CoreCompileInputs.cache
+/home/romain/Projects/EZGAME/Interface_Graphique/obj/x86/Release/Interface_Graphique.exe
