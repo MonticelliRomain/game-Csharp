@@ -11,7 +11,7 @@ namespace Interface_Graphique
             /*MainWindow win = new MainWindow();
             win.Show();*/
             //Create the Window
-            Window myWin = new Window("My first GTK# Application! ");
+            Window myWin = new MainWindow();
             myWin.Resize(200, 200);
 
             //Create a label and put some text in it.

@@ -1,0 +1,6 @@
+/home/vadim/Documents/game-Csharp/Interface_Graphique/bin/Debug/Interface_Graphique.exe
+/home/vadim/Documents/game-Csharp/Interface_Graphique/bin/Debug/Interface_Graphique.pdb
+/home/vadim/Documents/game-Csharp/Interface_Graphique/obj/x86/Debug/Interface_Graphique.csprojResolveAssemblyReference.cache
+/home/vadim/Documents/game-Csharp/Interface_Graphique/obj/x86/Debug/Interface_Graphique.csproj.CoreCompileInputs.cache
+/home/vadim/Documents/game-Csharp/Interface_Graphique/obj/x86/Debug/Interface_Graphique.exe
+/home/vadim/Documents/game-Csharp/Interface_Graphique/obj/x86/Debug/Interface_Graphique.pdb

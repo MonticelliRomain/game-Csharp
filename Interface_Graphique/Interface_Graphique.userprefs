@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{A4773072-69D1-4A93-AA50-79AF0549CDA8}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Game_Interface.cs">
+    <Files>
+      <File FileName="Program.cs" Line="25" Column="29" />
+      <File FileName="MainWindow.cs" Line="21" Column="9" />
+      <File FileName="gtk-gui/MainWindow.cs" Line="1" Column="1" />
+      <File FileName="Game_Interface.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Interface_Graphique" expanded="True">
+            <Node name="Interface_Graphique" expanded="True">
+              <Node name="Game_Interface.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.EZGAME PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Interface__Graphique PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

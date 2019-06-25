@@ -3,6 +3,10 @@
 
 public partial class MainWindow
 {
+	private global::Gtk.HButtonBox hbuttonbox1;
+
+	private global::Gtk.Button button3;
+
 	protected virtual void Build()
 	{
 		global::Stetic.Gui.Initialize(this);
@@ -10,6 +14,21 @@ public partial class MainWindow
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString("MainWindow");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+		// Container child MainWindow.Gtk.Container+ContainerChild
+		this.hbuttonbox1 = new global::Gtk.HButtonBox();
+		this.hbuttonbox1.Name = "hbuttonbox1";
+		// Container child hbuttonbox1.Gtk.ButtonBox+ButtonBoxChild
+		this.button3 = new global::Gtk.Button();
+		this.button3.CanFocus = true;
+		this.button3.Events = ((global::Gdk.EventMask)(256));
+		this.button3.Name = "button3";
+		this.button3.UseUnderline = true;
+		this.button3.Label = global::Mono.Unix.Catalog.GetString("Play New Game");
+		this.hbuttonbox1.Add(this.button3);
+		global::Gtk.ButtonBox.ButtonBoxChild w1 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox1[this.button3]));
+		w1.Expand = false;
+		w1.Fill = false;
+		this.Add(this.hbuttonbox1);
 		if ((this.Child != null))
 		{
 			this.Child.ShowAll();
@@ -18,5 +37,6 @@ public partial class MainWindow
 		this.DefaultHeight = 300;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
+		this.button3.Clicked += new global::System.EventHandler(this.OnButton3Clicked);
 	}
 }

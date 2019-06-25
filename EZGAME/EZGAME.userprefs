@@ -1,10 +1,24 @@
 ﻿<Properties StartupConfiguration="{96DE9001-E8C0-4056-8586-B186B6E1777D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Magician.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Black_Hole.cs">
     <Files>
-      <File FileName="Program.cs" Line="6" Column="6" />
-      <File FileName="Magician.cs" Line="1" Column="1" />
+      <File FileName="Magician.cs" Line="12" Column="4" />
+      <File FileName="Warrior.cs" Line="1" Column="1" />
+      <File FileName="Skill.cs" Line="1" Column="1" />
+      <File FileName="CharacterManager.cs" Line="1" Column="1" />
+      <File FileName="Character.cs" Line="1" Column="1" />
+      <File FileName="Black_Hole.cs" Line="15" Column="6" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="EZGAME" expanded="True">
+            <Node name="EZGAME" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.EZGAME PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
