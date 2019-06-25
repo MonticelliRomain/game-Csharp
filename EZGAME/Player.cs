@@ -3,6 +3,12 @@ namespace EZGAME
 {
     public class Player
     {
+        private int playerNumber;
+        public int GetNumber()
+        {
+            return playerNumber;
+        }
+
         private Character character;
         public Character GetCharacter() { return character; }
 
@@ -11,9 +17,10 @@ namespace EZGAME
 
         //private int playerNumber;
 
-        public Player(Character character /*int playerNumber,*/)
+        public Player(Character character, int playerNumber)
         {
             this.character = character;
+            this.playerNumber = playerNumber;
             //this.playerNumber = playerNumber;
         }
 

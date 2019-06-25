@@ -11,7 +11,7 @@ namespace EZGAME
             CharacterManager.Instance.Register<Warrior>("warrior");
             CharacterManager.Instance.Register<Elf>("elf");
 
-            Game myGame = new Game(2);
+            Game myGame = new Game(4);
             myGame.StartGame();
         }
     }
