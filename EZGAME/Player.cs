@@ -5,18 +5,7 @@ namespace EZGAME
     public class Player
     {
         private int playerNumber;
-        public int GetNumber()
-        {
-            return playerNumber;
-        }
-
         private Character character;
-        public Character GetCharacter() { return character; }
-
-
-
-
-        //private int playerNumber;
 
         public Player(Character character, int playerNumber)
         {
@@ -24,6 +13,13 @@ namespace EZGAME
             this.playerNumber = playerNumber;
             //this.playerNumber = playerNumber;
         }
+
+        public int GetNumber()
+        {
+            return playerNumber;
+        }
+
+        public Character GetCharacter() { return character; }
 
         public void PrintStats()
         {
@@ -72,7 +68,9 @@ namespace EZGAME
 
             while (true)
             {
-                int chosenPlayer = ShowEnnemies(ennemyTeam);
+                ShowEnnemies(ennemyTeam);
+                Console.WriteLine("Please enter the number of the player which you wish to attack");
+                int chosenPlayer = (Int32.Parse(Console.ReadLine()));
                 foreach (var players in ennemyTeam)
                     if (players.GetNumber() == chosenPlayer)
                     {
@@ -81,7 +79,7 @@ namespace EZGAME
             }
         }
 
-        public int ShowEnnemies(List<Player> ennemyPlayers)
+        public void ShowEnnemies (List<Player> ennemyPlayers)
         {
             for (int i = 0; i < ennemyPlayers.Count; i++)
             {
@@ -89,8 +87,6 @@ namespace EZGAME
                 Console.WriteLine(" ♥ Health: " + ennemyPlayers[i].GetCharacter().GetHealth());
                 Console.WriteLine(" ⁂ Mana: " + ennemyPlayers[i].GetCharacter().GetMana());
             }
-            Console.WriteLine("Please enter the number of the player which you wish to attack");
-            return (Int32.Parse(Console.ReadLine()));
         }
     }
 }

@@ -6,11 +6,6 @@ namespace EZGAME
     public sealed class CharacterManager
     {
         private Dictionary<string, Type> characters;
-        public Dictionary<string, Type> GetMap()
-        {
-            return characters;
-        }
-
         private static CharacterManager instance = null;
 
         public object GetInstance(string strFullyQualifiedName)
@@ -39,6 +34,11 @@ namespace EZGAME
         public void Register<T>(string name) where T : Character
         {
             characters.Add(name, typeof(T));
+        }
+
+        public Dictionary<string, Type> GetMap()
+        {
+            return characters;
         }
     }
 }

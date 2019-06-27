@@ -6,17 +6,7 @@ namespace EZGAME
     public class Game
     {
         private List<Team> teams;
-        public List<Team> GetTeams()
-        {
-            return teams;
-        }
-
         private bool gameOver;
-        public void GameOver()
-        {
-            gameOver = !gameOver;
-        }
-
         private int nbOfPlayers;
 
         public Game(int nbOfPlayers)
@@ -28,6 +18,16 @@ namespace EZGAME
             teams.Add(new Team(nbOfPlayers, "Team one"));
             teams.Add(new Team(nbOfPlayers, "Team two"));
 
+        }
+
+        public void GameOver()
+        {
+            gameOver = !gameOver;
+        }
+
+        public List<Team> GetTeams()
+        {
+            return teams;
         }
 
         public void StartGame()
