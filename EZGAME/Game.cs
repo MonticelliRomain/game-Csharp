@@ -59,10 +59,10 @@ namespace EZGAME
             }
 
             bool gameOver = true;
-            int playerTurn = 0;
             int teamTurn = 0; 
             while (gameOver)
             {
+                int playerTurn = teams[teamTurn].GetCurrentPlayer();
                 teams[teamTurn].GetPlayers()[playerTurn].GetCharacter().Hello();
                 teams[teamTurn].GetPlayers()[playerTurn].PrintStats();
                 int ennemyTeam = (teamTurn + 1) % teams.Count;
@@ -80,14 +80,21 @@ namespace EZGAME
                 }
                 int nextPlayer = (playerTurn + 1) % teams[teamTurn].GetPlayers().Count;
                 teams[teamTurn].GetPlayers()[playerTurn].ChooseSkill(ToHit);
-                playerTurn = (playerTurn + 1) % teams[teamTurn].GetPlayers().Count;
-                teamTurn = ennemyTeam;
+                teams[teamTurn].NextPlayer();
 
                 if (ToHit.GetCharacter().GetHealth() <= 0)
                 {
                     Console.WriteLine("\n† " + ToHit.GetCharacter().OnDeath() + " †");
-                    teams[ennemyTeam].GetPlayers().Remove(ToHit);
-                    if(teams[ennemyTeam].GetPlayers().Count == 0)
+                    Console.Write("{0} {1}", ennemyTeam, teams[ennemyTeam].GetPlayers()[0].GetCharacter().OnDeath());
+                    int index = teams[ennemyTeam].GetPlayers().IndexOf(ToHit);
+                    teams[ennemyTeam].GetPlayers().RemoveAt(index);
+
+                    if (teams[ennemyTeam].GetPlayers().Count == teams[ennemyTeam].GetCurrentPlayer())
+                    {
+                        teams[ennemyTeam].ActualizePlayer();
+                    }
+
+                    if (teams[ennemyTeam].GetPlayers().Count == 0)
                     {
                         gameOver = false;
                     }
@@ -97,6 +104,7 @@ namespace EZGAME
                 {
                     Console.Write("\n" + ToHit.GetCharacter().OnHit());
                 }
+                teamTurn = ennemyTeam;
             }
         }
 
