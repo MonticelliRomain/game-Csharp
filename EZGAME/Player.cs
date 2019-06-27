@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace EZGAME
 {
     public class Player
@@ -64,6 +65,32 @@ namespace EZGAME
                     }
                 }
             }
+        }
+
+        public Player ChooseTarget(List<Player> ennemyTeam)
+        {
+
+            while (true)
+            {
+                int chosenPlayer = ShowEnnemies(ennemyTeam);
+                foreach (var players in ennemyTeam)
+                    if (players.GetNumber() == chosenPlayer)
+                    {
+                        return players;
+                    }
+            }
+        }
+
+        public int ShowEnnemies(List<Player> ennemyPlayers)
+        {
+            for (int i = 0; i < ennemyPlayers.Count; i++)
+            {
+                Console.WriteLine("\nPlayer {0} stats: ", ennemyPlayers[i].GetNumber());
+                Console.WriteLine(" ♥ Health: " + ennemyPlayers[i].GetCharacter().GetHealth());
+                Console.WriteLine(" ⁂ Mana: " + ennemyPlayers[i].GetCharacter().GetMana());
+            }
+            Console.WriteLine("Please enter the number of the player which you wish to attack");
+            return (Int32.Parse(Console.ReadLine()));
         }
     }
 }

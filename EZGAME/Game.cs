@@ -38,21 +38,9 @@ namespace EZGAME
             int teamTurn = 0; 
             while (!gameOver)
             {
-
+                PlayTurn(teamTurn);
                 teamTurn = (teamTurn + 1) % teams.Count;
             }
-        }
-
-        public int ShowEnnemies(List<Player> ennemyPlayers)
-        {
-            for(int i = 0; i < ennemyPlayers.Count; i++)
-            {
-                Console.WriteLine("\nPlayer {0} stats: ", ennemyPlayers[i].GetNumber());
-                Console.WriteLine(" ♥ Health: " + ennemyPlayers[i].GetCharacter().GetHealth());
-                Console.WriteLine(" ⁂ Mana: " + ennemyPlayers[i].GetCharacter().GetMana());
-            }
-            Console.WriteLine("Please enter the number of the player which you wish to attack");
-            return(Int32.Parse(Console.ReadLine()));
         }
 
         public void CreateTeams()
@@ -97,18 +85,9 @@ namespace EZGAME
             teams[teamTurn].GetPlayers()[playerTurn].GetCharacter().Hello();
             teams[teamTurn].GetPlayers()[playerTurn].PrintStats();
             int ennemyTeam = (teamTurn + 1) % teams.Count;
-            bool hasChoosedTarget = false;
-            Player ToHit = null;
-            while (!hasChoosedTarget)
-            {
-                int playerNumber = ShowEnnemies(teams[ennemyTeam].GetPlayers());
-                foreach (var players in teams[ennemyTeam].GetPlayers())
-                    if (players.GetNumber() == playerNumber)
-                    {
-                        hasChoosedTarget = true;
-                        ToHit = players;
-                    }
-            }
+
+            Player ToHit = teams[teamTurn].GetPlayers()[playerTurn].ChooseTarget(teams[ennemyTeam].GetPlayers());
+
             int nextPlayer = (playerTurn + 1) % teams[teamTurn].GetPlayers().Count;
             teams[teamTurn].GetPlayers()[playerTurn].ChooseSkill(ToHit);
             teams[teamTurn].NextPlayer();
@@ -116,19 +95,20 @@ namespace EZGAME
             if (ToHit.GetCharacter().GetHealth() <= 0)
             {
                 Console.WriteLine("\n† " + ToHit.GetCharacter().OnDeath() + " †");
-                Console.Write("{0} {1}", ennemyTeam, teams[ennemyTeam].GetPlayers()[0].GetCharacter().OnDeath());
                 int index = teams[ennemyTeam].GetPlayers().IndexOf(ToHit);
                 teams[ennemyTeam].GetPlayers().RemoveAt(index);
-
-                if (teams[ennemyTeam].GetPlayers().Count == teams[ennemyTeam].GetCurrentPlayer())
-                {
-                    teams[ennemyTeam].ActualizePlayer();
-                }
 
                 if (teams[ennemyTeam].GetPlayers().Count == 0)
                 {
                     gameOver = true;
                 }
+
+                else if (teams[ennemyTeam].GetPlayers().Count == teams[ennemyTeam].GetCurrentPlayer())
+                {
+                    teams[ennemyTeam].ActualizePlayer();
+                }
+
+
             }
 
             else
