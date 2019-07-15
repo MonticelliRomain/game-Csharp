@@ -1,10 +1,8 @@
 # BeCode: Console C# Game
 
-> 🛰️ Short project's description
+> 🛰️ Simple C# console game consisting of choosing classes (magician, warrior, elf) and fighting against said classes.
 
 * * *
-
-Simple C# console game consisting of choosing classes (magician, warrior, elf) and fighting against said classes.
 
 ## About
 
