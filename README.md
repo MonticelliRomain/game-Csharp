@@ -8,7 +8,7 @@
 
 This projects is developed in C# on Monodevelop. The goal is to make a graphical interface for it.
 
-## Installation (if applicable)
+## Installation 
 
 To install it you just need something which can runs C# then just clone the repository and run the solution.
 
