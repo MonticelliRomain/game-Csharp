@@ -10,7 +10,7 @@ This projects is developed in C# on Monodevelop. The goal is to make a graphical
 
 ## Installation (if applicable)
 
-To install it you just need somehting which can runs C# then just clone the repository and run the solution.
+To install it you just need something which can runs C# then just clone the repository and run the solution.
 
 
 * * *
